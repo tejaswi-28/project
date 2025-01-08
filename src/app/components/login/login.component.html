@@ -1,0 +1,113 @@
+<!-- <div class="wrapper">
+    <form class="form-signin">       
+      <h2 class="form-signin-heading">Please login</h2>
+      <input type="text" class="form-control" name="email" [(ngModel)]="loginData.email" placeholder="Email" required="" autofocus="" />
+      <input type="password" class="form-control" name="password" [(ngModel)]="loginData.password" placeholder="Password" required=""/>      
+     
+      <button class="btn btn-primary btn-block" type="submit" (click)="onLogin()">Login</button>   
+        <br>
+        <br>
+      <button class="btn btn-white shadow" (click)="handleOauth()">
+        <img
+            src="https://www.svgrepo.com/show/475656/google-color.svg"
+            alt="Google"
+            width="18px" height="18px"
+        />
+        <span class="loading loading-spinner px-2">Continue with Google</span>
+      </button>
+    </form>
+</div> 
+
+<div class="regsiter">
+    <form class="register">
+        <h2>Register now!</h2>
+        <input type="text" name="name" [(ngModel)]="registerData.name" placeholder="Enter your name">
+        <input type="email" name="email" [(ngModel)]="registerData.email" placeholder="Enter your email">
+        <input type="password" name="password" [(ngModel)]="registerData.password" placeholder="Enter your password">
+        
+        <button class="btn btn-primary" (click)="onRegister()">Sign up</button>
+    </form>
+</div> -->
+
+<div class="container">
+    <div class="wrapper" [class.active]="isRegisterMode">
+        <span class="rotate-bg"></span>
+        <span class="rotate-bg2"></span>
+    
+        <div class="form-box login" *ngIf="!isRegisterMode">
+            <h2 class="title animation" style="--i:0; --j:21">Login</h2>
+            <form>
+    
+                <div class="input-box animation" style="--i:1; --j:22">
+                    <input type="email" [(ngModel)]="loginData.email" name="email" required>
+                    <label for="">Email</label>
+                    <i class="bx bxs-user"></i>
+                </div>
+    
+                <div class="input-box animation" style="--i:2; --j:23">
+                    <input type="password" [(ngModel)]="loginData.password" name="password" required>
+                    <label for="">Password</label>
+                    <i class="bx bxs-lock-alt"></i>
+                </div>
+  
+                <button type="submit" class="btn" style="--i:3; --j:24" (click)="onLogin()">Login</button>
+  
+                <div class="linkTxt animation" style="--i:5; --j:25">
+                    <p>Don't have an account? <a (click)="switchToRegister()" class="register-link">Sign Up</a></p>
+                </div>
+            </form>
+            <button class="btn btn-white shadow g-btn mt-4" (click)="handleOauth()">
+              <img
+                  src="https://www.svgrepo.com/show/475656/google-color.svg"
+                  alt="Google"
+                  width="18px" height="18px"
+              />
+              <span class="loading loading-spinner px-2">Continue with Google</span>
+            </button>
+        </div>
+    
+        <div class="info-text login" *ngIf="!isRegisterMode" style="color: white;">
+            <h2 class="animation" style="--i:0; --j:20 ">Welcome!</h2>
+            <p class="animation" style="--i:1; --j:21">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, rem?
+            </p>
+        </div>
+    
+        <div class="form-box register" *ngIf="isRegisterMode">
+            <h2 class="title animation" style="--i:17; --j:0">Sign Up</h2>
+            <form>
+    
+                <div class="input-box animation" style="--i:18; --j:1">
+                    <input type="text" [(ngModel)]="registerData.username" name="username" required>
+                    <label for="">Username</label>
+                    <i class="bx bxs-user"></i>
+                </div>
+    
+                <div class="input-box animation" style="--i:19; --j:2">
+                    <input type="email" [(ngModel)]="registerData.email" name="email" required>
+                    <label for="">Email</label>
+                    <i class="bx bxs-envelope"></i>
+                </div>
+    
+                <div class="input-box animation" style="--i:20; --j:3">
+                    <input type="password" [(ngModel)]="registerData.password" name="password" required>
+                    <label for="">Password</label>
+                    <i class="bx bxs-lock-alt"></i>
+                </div>
+    
+                <button type="submit" class="btn" style="--i:21;--j:4" (click)="onRegister()">Sign Up</button>
+    
+                <div class="linkTxt animation" style="--i:22; --j:5">
+                    <p>Already have an account? <a (click)="switchToLogin()" class="login-link">Login</a></p>
+                </div>
+            </form>
+        </div>
+    
+        <div class="info-text register" *ngIf="isRegisterMode" style="color: white;">
+            <h2 class="animation" style="--i:17; --j:0;">Welcome!</h2>
+            <p class="animation" style="--i:18; --j:1;">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, rem?
+            </p>
+        </div>
+    </div>
+  </div>
